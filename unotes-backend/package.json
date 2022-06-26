@@ -4,6 +4,7 @@
   "description": "Backend UNotes",
   "scripts": {
     "prisma:gen": "prisma generate --schema=model.prisma",
+    "prisma:push": "prisma db push",
     "dev": "nodemon",
     "build": "tsc",
     "start": "node dist/index.js"
