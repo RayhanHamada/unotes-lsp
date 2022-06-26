@@ -8,19 +8,20 @@ generator client {
 }
 
 model User {
-    id Int @id
+    id Int @id @default(autoincrement())
 
     username String @db.VarChar(80)
     email    String @db.VarChar(80)
     password String @db.VarChar(80)
 
-    notes Note[]
+    notes   Note[]
+    session Session[]
 
     @@map("user")
 }
 
 model Note {
-    id Int @id
+    id Int @id @default(autoincrement())
 
     userId  Int    @map("user_id")
     name    String @db.VarChar(100)
@@ -29,4 +30,15 @@ model Note {
     user User @relation(fields: [userId], references: [id])
 
     @@map("note")
+}
+
+model Session {
+    id Int @id @default(autoincrement())
+
+    userId   Int    @map("user_id")
+    jwtToken String @map("jwt_token")
+
+    user User @relation(fields: [userId], references: [id])
+
+    @@map("session")
 }
