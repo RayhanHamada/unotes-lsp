@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Backend UNotes",
   "scripts": {
-    "prisma:gen": "prisma generate --schema=model.prisma",
-    "prisma:push": "prisma db push --schema=model.prisma",
+    "prisma:gen": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:migdev": "prisma migrate dev",
     "dev": "nodemon",
     "build": "tsc",
     "start": "node dist/index.js"

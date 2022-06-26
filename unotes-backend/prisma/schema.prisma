@@ -14,12 +14,12 @@ model User {
     email    String @db.VarChar(80)
     password String @db.VarChar(80)
 
-    notes Notes[]
+    notes Note[]
 
     @@map("user")
 }
 
-model Notes {
+model Note {
     id Int @id
 
     userId  Int    @map("user_id")
@@ -28,5 +28,5 @@ model Notes {
 
     user User @relation(fields: [userId], references: [id])
 
-    @@map("notes")
+    @@map("note")
 }
