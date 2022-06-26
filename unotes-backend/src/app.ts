@@ -1,20 +1,34 @@
 import { fastify } from 'fastify';
 import CORS from '@fastify/cors';
-import JWT from '@fastify/jwt';
-import { onReady } from 'src/hooks';
-import { CORSConfig, JWTConfig } from 'src/configs';
+import swagger from '@fastify/swagger';
 
-const app = fastify({ logger: true });
+import { onReady } from 'src/hooks';
+import { CORSConfig, swaggerConfig } from 'src/configs';
+import { userRoutes } from 'src/routes';
+
+const app = fastify({
+  logger: true,
+  ajv: {
+    customOptions: {
+      keywords: ['kind'],
+    },
+  },
+});
 
 /**
  * register plugin
  */
 app.register(CORS, CORSConfig);
-app.register(JWT, JWTConfig);
+app.register(swagger, swaggerConfig);
 
 /**
  * register hooks
  */
 app.addHook('onReady', onReady);
+
+/**
+ * register routes
+ */
+app.register(userRoutes, { prefix: '/users' });
 
 export default app;

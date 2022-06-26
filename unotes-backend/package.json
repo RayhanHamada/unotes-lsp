@@ -26,6 +26,7 @@
     "@fastify/jwt": "^6.1.0",
     "@fastify/swagger": "^7.4.0",
     "@prisma/client": "^3.15.2",
+    "@sinclair/typebox": "^0.23.5",
     "fastify": "^4.1.0"
   }
 }
