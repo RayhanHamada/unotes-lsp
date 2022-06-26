@@ -1,0 +1,6 @@
+{
+  "exec": "env-cmd tsx src/index.ts",
+  "watch": ["src"],
+  "ext": "*",
+  "ignore": ["node_modules"]
+}
