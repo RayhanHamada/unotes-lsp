@@ -1,0 +1,33 @@
+<mxfile host="65bd71144e">
+    <diagram id="bweU3u733Zc1z5GfixC9" name="ERD">
+        <mxGraphModel dx="1213" dy="861" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="38" value="" style="edgeStyle=none;html=1;startArrow=ERone;startFill=0;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="33" target="36">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="User" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="50" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="+id (int)&#10;+username (string)&#10;+email (string)&#10;+password &#10;" style="align=left;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="33">
+                    <mxGeometry y="30" width="160" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="Note" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="320" y="50" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="+id (int)&#10;+user_id (int, FK)&#10;+name (string)&#10;+content (string)&#10;" style="align=left;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="36">
+                    <mxGeometry y="30" width="160" height="90" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="Iws4Fvm3tBOT7BSx9ZtD" name="Flowchart_Login">
+        <mxGraphModel dx="1031" dy="732" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="JyEbljsS3qw2IChlDEZo-0"/>
+                <mxCell id="JyEbljsS3qw2IChlDEZo-1" parent="JyEbljsS3qw2IChlDEZo-0"/>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
