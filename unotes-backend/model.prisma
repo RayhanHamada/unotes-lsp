@@ -1,0 +1,32 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+model User {
+    id Int @id
+
+    username String @db.VarChar(80)
+    email    String @db.VarChar(80)
+    password String @db.VarChar(80)
+
+    notes Notes[]
+
+    @@map("user")
+}
+
+model Notes {
+    id Int @id
+
+    userId  Int    @map("user_id")
+    name    String @db.VarChar(100)
+    content String @db.LongText
+
+    user User @relation(fields: [userId], references: [id])
+
+    @@map("notes")
+}

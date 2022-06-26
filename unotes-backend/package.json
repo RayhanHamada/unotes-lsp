@@ -2,7 +2,9 @@
   "name": "unotes-backend",
   "version": "1.0.0",
   "description": "Backend UNotes",
-  "scripts": {},
+  "scripts": {
+    "prisma:gen": "prisma generate --schema=model.prisma"
+  },
   "keywords": [],
   "author": "Muhammad Rayhan Hamada Budiman <rayhanhamada1999@gmail.com>",
   "license": "MIT",
