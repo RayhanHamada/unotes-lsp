@@ -20,13 +20,6 @@ const registerBodySchema = Type.Object({
 });
 
 const registerResponseSchema = {
-  204: Type.Object(
-    {},
-    {
-      description: 'Success registering user',
-    }
-  ),
-
   400: Type.Object(
     {
       error: Type.Literal('Bad Request'),
@@ -58,9 +51,32 @@ export const registerSchema: FastifySchema = {
 };
 
 export type RegisterSchema = HandlerGeneric<{
-  //   Body: Static<typeof registerBodySchema>;
+  Body: Static<typeof registerBodySchema>;
   Reply: ResponseSchema<typeof registerResponseSchema>;
 }>;
 
 export const registerHandler: CustomRouteHandler<RegisterSchema> =
-  async function (req, res) {};
+  async function (req, res) {
+    const u = await db.user
+      .create({
+        data: {
+          ...req.body,
+        },
+      })
+      .then((u) => {
+        this.log.info(`User ${u.username} terdaftar`);
+        return u;
+      })
+      .catch((err) => {
+        this.log.error(`Gagal mendaftarkan user ${req.body.username}`);
+        this.log.trace(err);
+
+        return undefined;
+      });
+
+    if (!u) {
+      return res.code(500).send();
+    }
+
+    return res.code(204).send();
+  };

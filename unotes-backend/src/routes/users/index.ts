@@ -1,5 +1,10 @@
 import { FastifyPluginAsync } from 'fastify';
 import {
+  authenticateHandler,
+  AuthenticateSchema,
+  authenticateSchema,
+} from 'src/routes/users/authenticate';
+import {
   registerHandler,
   RegisterSchema,
   registerSchema,
@@ -12,5 +17,13 @@ export const userRoutes: FastifyPluginAsync = async function (app) {
       schema: registerSchema,
     },
     registerHandler
+  );
+
+  app.post<AuthenticateSchema>(
+    '/authenticate',
+    {
+      schema: authenticateSchema,
+    },
+    authenticateHandler
   );
 };

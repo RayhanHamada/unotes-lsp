@@ -4,7 +4,7 @@ import swagger from '@fastify/swagger';
 
 import { onReady } from 'src/hooks';
 import { CORSConfig, swaggerConfig } from 'src/configs';
-import { userRoutes } from 'src/routes';
+import { noteRoutes, userRoutes } from 'src/routes';
 
 const app = fastify({
   logger: true,
@@ -30,5 +30,6 @@ app.addHook('onReady', onReady);
  * register routes
  */
 app.register(userRoutes, { prefix: '/users' });
+app.register(noteRoutes, { prefix: '/notes' });
 
 export default app;
