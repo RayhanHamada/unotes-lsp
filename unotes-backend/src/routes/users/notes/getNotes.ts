@@ -30,7 +30,7 @@ const getUserNotesResponseSchema = {
 export const getUserNotesSchema: FastifySchema = {
   tags: ['Users', 'Notes'],
   description: 'Membuat Note',
-  body: getUserNotesParamsSchema,
+  params: getUserNotesParamsSchema,
   response: getUserNotesResponseSchema,
 };
 
