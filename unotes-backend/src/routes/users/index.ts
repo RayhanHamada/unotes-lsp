@@ -5,6 +5,11 @@ import {
   authenticateSchema,
 } from 'src/routes/users/authenticate';
 import {
+  getUserNotesHandler,
+  getUserNotesSchema,
+  GetUserNotesSchema,
+} from 'src/routes/users/notes';
+import {
   registerHandler,
   RegisterSchema,
   registerSchema,
@@ -25,5 +30,13 @@ export const userRoutes: FastifyPluginAsync = async function (app) {
       schema: authenticateSchema,
     },
     authenticateHandler
+  );
+
+  app.get<GetUserNotesSchema>(
+    '/:userId/notes',
+    {
+      schema: getUserNotesSchema,
+    },
+    getUserNotesHandler
   );
 };
